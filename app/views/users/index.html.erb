@@ -1,0 +1,19 @@
+<h1>List of Contributors</h1>
+
+<% @users.each do |user| %>
+  <td>
+  <ul><tr><%= user.email %> has made <%= user.queries.count %> Contributions</tr>
+  <li><% if user.queries.count > 0 %>
+    <ul><% user.queries.each do |query| %>
+      <li>Q: <%= query.question %></li>
+      <li>A: <%= query.answer %></li>
+    <% end %>
+    </ul>
+  </li>
+    <% end %>
+  <ul>
+  </ul>
+  </td>
+
+<% end %>
+

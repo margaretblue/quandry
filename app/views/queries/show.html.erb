@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+  <h2><%= @query.question %></h2>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <% if @query.answer == "" %>
+    <%= link_to 'Answer this Question', edit_query_path(@query) %>
+    <% else %>
+     <%= @query.answer %>
+  <% end %>
+
+</p>
+
+<%= link_to 'Edit', edit_query_path(@query) %> |
+<%= link_to 'Back to Questions List', queries_path %>

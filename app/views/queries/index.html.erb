@@ -1,0 +1,32 @@
+<h1>Questions:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @queries.each do |query| %>
+      <tr>
+        <td><%= query.question %></td>
+        <td><%= query.answer %></td>
+        <td><%= link_to 'Show | ', query %></td>
+        <% if query.answer == "" %>
+          <td><%= link_to 'Answer this Question | ', edit_query_path(query) %></td>
+        <% end %>
+        <td><%= link_to 'Edit Question | ', edit_query_path(query) %></td>
+        <td><%= link_to 'Delete', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Question', new_query_path %>
